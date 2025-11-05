@@ -1,0 +1,29 @@
+{
+  "name": "eleventy-scad-plugin-demo",
+  "version": "1.0.0",
+  "description": "Example site using `@11ty/eleventy` with `eleventy-plugin-scad` (view on [here on github](https://github.com/kevinkhill/eleventy-plugin-scad) or [on npm](https://www.npmjs.com/package/eleventy-plugin-scad))",
+  "keywords": [],
+  "homepage": "https://github.com/kevinkhill/eleventy-scad-plugin-demo#readme",
+  "bugs": {
+    "url": "https://github.com/kevinkhill/eleventy-scad-plugin-demo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinkhill/eleventy-scad-plugin-demo.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Kevin Hill",
+    "email": "kevinkhill@gmail.com"
+  },
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production npx eleventy --pathprefix=eleventy-scad-plugin-demo",
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "eleventy-plugin-scad": "^0.3.1"
+  }
+}
