@@ -1,2 +1,8 @@
 # eleventy-scad-plugin-demo
-Example site using `@11ty/eleventy` with `eleventy-plugin-scad` (view on [here on github](https://github.com/kevinkhill/eleventy-plugin-scad) or [on npm](https://www.npmjs.com/package/eleventy-plugin-scad))
+Example site using [Eleventy](https://www.11ty.dev/) and the plugin [eleventy-plugin-scad](https://github.com/kevinkhill/eleventy-plugin-scad)
+
+### Build
+
+![screenshot of console output](./img/build.png)
+
+### [View Demo Site](https://kevinkhill.github.io/eleventy-scad-plugin-demo)
