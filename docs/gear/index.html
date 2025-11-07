@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>sphere.stl</title>
+		<title>gear.stl</title>
 		<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 		<script>
-			window.STL_URL = new URL("sphere.stl", window.location.href);
+			window.STL_URL = new URL("gear.stl", window.location.href);
 		</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Midnight">
 		<style>
@@ -102,27 +102,34 @@
 	<body>
 		<!-- Details & Code / Left Side -->
 		<div id="info">
-			<h1>sphere.scad</h1>
+			<h1>gear.scad</h1>
 			<table>
 			<tr>
 				<td>
 				<strong>SCAD</strong>
 				</td>
-				<td>./models/sphere.scad</td>
+				<td>./models/gear.scad</td>
 			</tr>
 			<tr>
 				<td>
 				<strong>STL</strong>
 				</td>
 				<td>
-				<a href="">sphere.stl</a>
+				<a href="">gear.stl</a>
 				</td>
 			</tr>
 			</table>
 			<h4>File Content</h4>
-			<pre>$fn = 100;
+			<pre>module gear(teeth = 12, radius = 20, thickness = 5) {
+  for (i = [0:teeth - 1]) {
+    rotate([0, 0, i * 360 / teeth])
+      translate([radius, 0, 0])
+        cube([2, 6, thickness], center=true);
+  }
+  cylinder(h=thickness, r=radius - 2, center=true);
+}
 
-sphere(24);
+gear(teeth=24, radius=25, thickness=6);
 </pre>
 		</div>
 

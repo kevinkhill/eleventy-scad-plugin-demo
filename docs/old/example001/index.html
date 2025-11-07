@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>sphere.stl</title>
+		<title>example001.stl</title>
 		<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 		<script>
-			window.STL_URL = new URL("sphere.stl", window.location.href);
+			window.STL_URL = new URL("example001.stl", window.location.href);
 		</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Midnight">
 		<style>
@@ -102,27 +102,62 @@
 	<body>
 		<!-- Details & Code / Left Side -->
 		<div id="info">
-			<h1>sphere.scad</h1>
+			<h1>example001.scad</h1>
 			<table>
 			<tr>
 				<td>
 				<strong>SCAD</strong>
 				</td>
-				<td>./models/sphere.scad</td>
+				<td>./models/old/example001.scad</td>
 			</tr>
 			<tr>
 				<td>
 				<strong>STL</strong>
 				</td>
 				<td>
-				<a href="">sphere.stl</a>
+				<a href="">example001.stl</a>
 				</td>
 			</tr>
 			</table>
 			<h4>File Content</h4>
-			<pre>$fn = 100;
+			<pre>module example001()
+{
+  function r_from_dia(d) = d / 2;
 
-sphere(24);
+  module rotcy(rot, r, h) {
+    rotate(90, rot)
+      cylinder(r = r, h = h, center = true);
+  }
+
+  difference() {
+    sphere(r = r_from_dia(size));
+    rotcy([0, 0, 0], cy_r, cy_h);
+    rotcy([1, 0, 0], cy_r, cy_h);
+    rotcy([0, 1, 0], cy_r, cy_h);
+  }
+
+  size = 50;
+  hole = 25;
+
+  cy_r = r_from_dia(hole);
+  cy_h = r_from_dia(size * 2.5);
+}
+
+echo(version=version());
+
+example001();
+
+// Written by Clifford Wolf <clifford@clifford.at> and Marius
+// Kintel <marius@kintel.net>
+//
+// To the extent possible under law, the author(s) have dedicated all
+// copyright and related and neighboring rights to this software to the
+// public domain worldwide. This software is distributed without any
+// warranty.
+//
+// You should have received a copy of the CC0 Public Domain
+// Dedication along with this software.
+// If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 </pre>
 		</div>
 

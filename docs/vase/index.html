@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>sphere.stl</title>
+		<title>vase.stl</title>
 		<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 		<script>
-			window.STL_URL = new URL("sphere.stl", window.location.href);
+			window.STL_URL = new URL("vase.stl", window.location.href);
 		</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Midnight">
 		<style>
@@ -102,27 +102,37 @@
 	<body>
 		<!-- Details & Code / Left Side -->
 		<div id="info">
-			<h1>sphere.scad</h1>
+			<h1>vase.scad</h1>
 			<table>
 			<tr>
 				<td>
 				<strong>SCAD</strong>
 				</td>
-				<td>./models/sphere.scad</td>
+				<td>./models/vase.scad</td>
 			</tr>
 			<tr>
 				<td>
 				<strong>STL</strong>
 				</td>
 				<td>
-				<a href="">sphere.stl</a>
+				<a href="">vase.stl</a>
 				</td>
 			</tr>
 			</table>
 			<h4>File Content</h4>
 			<pre>$fn = 100;
 
-sphere(24);
+module spiral_vase(turns = 5, height = 100, radius = 30) {
+  for (z = [0:1:height]) {
+    angle = 360 * turns * z / height;
+    translate([radius * cos(angle), radius * sin(angle), z])
+      rotate([0, 0, angle])
+        circle(r=2);
+  }
+}
+
+linear_extrude(height=2)
+  spiral_vase(turns=8, height=80, radius=25);
 </pre>
 		</div>
 

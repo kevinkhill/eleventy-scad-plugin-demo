@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>sphere.stl</title>
+		<title>example015.stl</title>
 		<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 		<script>
-			window.STL_URL = new URL("sphere.stl", window.location.href);
+			window.STL_URL = new URL("example015.stl", window.location.href);
 		</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Midnight">
 		<style>
@@ -102,27 +102,61 @@
 	<body>
 		<!-- Details & Code / Left Side -->
 		<div id="info">
-			<h1>sphere.scad</h1>
+			<h1>example015.scad</h1>
 			<table>
 			<tr>
 				<td>
 				<strong>SCAD</strong>
 				</td>
-				<td>./models/sphere.scad</td>
+				<td>./models/old/example015.scad</td>
 			</tr>
 			<tr>
 				<td>
 				<strong>STL</strong>
 				</td>
 				<td>
-				<a href="">sphere.stl</a>
+				<a href="">example015.stl</a>
 				</td>
 			</tr>
 			</table>
 			<h4>File Content</h4>
-			<pre>$fn = 100;
+			<pre>
+module shape()
+{
+  difference() {
+    translate([ -35, -35 ]) intersection() {
+      union() {
+        difference() {
+          square(100, true);
+          square(50, true);
+        }
+        translate([ 50, 50 ]) square(15, true);
+      }
+      rotate(45) translate([ 0, -15 ]) square([ 100, 30 ]);
+    }
+  
+    rotate(-45) scale([ 0.7, 1.3 ]) circle(5);
+  }
+  
+  import(file = "example009.dxf", layer = "body", convexity = 6, scale=2);
+}
 
-sphere(24);
+echo(version=version());
+
+// linear_extrude(convexity = 10, center = true)
+shape();
+
+// Written by Clifford Wolf <clifford@clifford.at> and Marius
+// Kintel <marius@kintel.net>
+//
+// To the extent possible under law, the author(s) have dedicated all
+// copyright and related and neighboring rights to this software to the
+// public domain worldwide. This software is distributed without any
+// warranty.
+//
+// You should have received a copy of the CC0 Public Domain
+// Dedication along with this software.
+// If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 </pre>
 		</div>
 

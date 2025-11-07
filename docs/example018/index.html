@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>sphere.stl</title>
+		<title>example018.stl</title>
 		<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 		<script>
-			window.STL_URL = new URL("sphere.stl", window.location.href);
+			window.STL_URL = new URL("example018.stl", window.location.href);
 		</script>
 		<link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Midnight">
 		<style>
@@ -102,27 +102,60 @@
 	<body>
 		<!-- Details & Code / Left Side -->
 		<div id="info">
-			<h1>sphere.scad</h1>
+			<h1>example018.scad</h1>
 			<table>
 			<tr>
 				<td>
 				<strong>SCAD</strong>
 				</td>
-				<td>./models/sphere.scad</td>
+				<td>./models/example018.scad</td>
 			</tr>
 			<tr>
 				<td>
 				<strong>STL</strong>
 				</td>
 				<td>
-				<a href="">sphere.stl</a>
+				<a href="">example018.stl</a>
 				</td>
 			</tr>
 			</table>
 			<h4>File Content</h4>
-			<pre>$fn = 100;
+			<pre>
+module step(len, mod)
+{
+  for (i = [0:$children-1]) {
+    translate([ len*(i - ($children-1)/2), 0, 0 ]) children((i+mod) % $children);
+  }
+}
 
-sphere(24);
+echo(version=version());
+
+for (i = [1:4]) {
+  translate([0, -250+i*100, 0]) step(100, i) {
+    sphere(30);
+    cube(60, true);
+    cylinder(r = 30, h = 50, center = true);
+  
+    union() {
+      cube(45, true);
+      rotate([45, 0, 0]) cube(50, true);
+      rotate([0, 45, 0]) cube(50, true);
+      rotate([0, 0, 45]) cube(50, true);
+    }
+  }
+}
+
+// Written by Clifford Wolf <clifford@clifford.at> and Marius
+// Kintel <marius@kintel.net>
+//
+// To the extent possible under law, the author(s) have dedicated all
+// copyright and related and neighboring rights to this software to the
+// public domain worldwide. This software is distributed without any
+// warranty.
+//
+// You should have received a copy of the CC0 Public Domain
+// Dedication along with this software.
+// If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 </pre>
 		</div>
 
