@@ -3,7 +3,10 @@ Example site using [Eleventy](https://www.11ty.dev/) and the plugin [eleventy-pl
 
 ### [View Demo Site](https://kevinkhill.github.io/eleventy-scad-plugin-demo)
 
-### Build Output
+### Example Build Output
 
 ![screenshot of console output](./img/build.png)
 
+### STL Viewer (Midnight theme)
+
+![screenshot of stl viewer page](./img/example6.png)
