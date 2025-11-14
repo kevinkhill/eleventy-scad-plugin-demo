@@ -1,15 +1,15 @@
-import { EleventyPluginOpenSCAD } from "eleventy-plugin-scad";
+import { addOpenSCADPlugin } from "eleventy-plugin-scad";
 
 /** @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig */
 export default function (eleventyConfig) {
     eleventyConfig.setInputDirectory("models");
     eleventyConfig.setOutputDirectory("docs");
 
-    // addOpenSCADPlugin(eleventyConfig, {
+    addOpenSCADPlugin(eleventyConfig, {
+        launchPath: "docker",
+    });
+
+    // eleventyConfig.addPlugin(EleventyPluginOpenSCAD, {
     //     launchPath: "docker",
     // });
-
-    eleventyConfig.addPlugin(EleventyPluginOpenSCAD, {
-        launchPath: "docker",
-    })
 }
