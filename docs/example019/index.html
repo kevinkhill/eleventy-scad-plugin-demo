@@ -6,8 +6,9 @@
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
     <script>
       window.STL_URL = new URL("example019.stl", window.location.href)
+      console.log()
     </script>
-    <link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Traditional">
+    <link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Midnight">
     <style>
       body {
         margin: 0;
@@ -106,26 +107,11 @@
   </head>
 
   <body>
-    <!-- Details & Code / Left Side -->
+    
     <div id="info">
       <h1>example019.scad</h1>
-      <table>
-        <tr>
-          <td>
-            <strong>SCAD</strong>
-          </td>
-          <td>./models/example019.scad</td>
-        </tr>
-        <tr>
-          <td>
-            <strong>STL</strong>
-          </td>
-          <td>
-            <a href="">example019.stl</a>
-          </td>
-        </tr>
-      </table>
-      <h4>File Content</h4>
+      <h3><a href="./example019.stl">Download example019.stl</a></h3>
+      <h2>File Content</h2>
       <pre>
 function get_cylinder_h(p) = lookup(p, [
     [ -200, 5 ],
@@ -154,10 +140,10 @@ for (i = [-100:5:+100]) {
 </pre>
     </div>
 
-    <!-- Container for STL / Right Side -->
+    
     <div id="viewer"></div>
 
-    <!-- Three.js Renderer -->
+    
     <script type="module">
       import * as THREE from "three"
       import { OrbitControls } from "three/addons/controls/OrbitControls.js"

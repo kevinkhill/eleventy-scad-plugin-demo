@@ -7,6 +7,8 @@ export default function (eleventyConfig) {
 
     addOpenSCADPlugin(eleventyConfig, {
         launchPath: "docker",
+        theme: "Midnight",
+        verbose: false
     });
 
     // eleventyConfig.addPlugin(EleventyPluginOpenSCAD, {

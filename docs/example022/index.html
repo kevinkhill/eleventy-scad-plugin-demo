@@ -6,8 +6,9 @@
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
     <script>
       window.STL_URL = new URL("example022.stl", window.location.href)
+      console.log()
     </script>
-    <link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Traditional">
+    <link rel="stylesheet" href="https://www.w3.org/StyleSheets/Core/Midnight">
     <style>
       body {
         margin: 0;
@@ -106,26 +107,11 @@
   </head>
 
   <body>
-    <!-- Details & Code / Left Side -->
+    
     <div id="info">
       <h1>example022.scad</h1>
-      <table>
-        <tr>
-          <td>
-            <strong>SCAD</strong>
-          </td>
-          <td>./models/example022.scad</td>
-        </tr>
-        <tr>
-          <td>
-            <strong>STL</strong>
-          </td>
-          <td>
-            <a href="">example022.stl</a>
-          </td>
-        </tr>
-      </table>
-      <h4>File Content</h4>
+      <h3><a href="./example022.stl">Download example022.stl</a></h3>
+      <h2>File Content</h2>
       <pre>// size is a vector [w, h, d]
 module roundedBox(size, radius, sidesonly)
 {
@@ -177,10 +163,10 @@ translate([15,0,0]) roundedBox([20,30,40], 5, false);
 </pre>
     </div>
 
-    <!-- Container for STL / Right Side -->
+    
     <div id="viewer"></div>
 
-    <!-- Three.js Renderer -->
+    
     <script type="module">
       import * as THREE from "three"
       import { OrbitControls } from "three/addons/controls/OrbitControls.js"
